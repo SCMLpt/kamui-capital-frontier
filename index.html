@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Kamui Capital Frontier — Arbitrum Sepolia demonstration</title>
+  <style>
+    :root{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#e8ecf5;background:#0b1020}*{box-sizing:border-box}body{margin:0}main{max-width:940px;margin:auto;padding:48px 24px 72px}a{color:#95b6ff}.eyebrow{color:#9cb3d8;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}.badge{display:inline-block;padding:5px 10px;border:1px solid #5176aa;border-radius:999px;color:#bcd0ff;font-size:.8rem}h1{font-size:clamp(2.2rem,7vw,4.3rem);line-height:1.04;letter-spacing:-.05em;margin:16px 0}h2{font-size:1.35rem;margin:34px 0 12px}.lead{font-size:1.15rem;max-width:700px;color:#b8c6de}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:30px 0}.card{background:#151d31;border:1px solid #2c3c5b;border-radius:18px;padding:22px}.label{color:#9fb0ca;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}.value{font-size:2.5rem;font-weight:700;letter-spacing:-.05em;margin:4px 0}.bar{height:11px;background:#293951;border-radius:12px;overflow:hidden}.bar span{display:block;height:100%;background:#73a9ff}.stress span{background:#f4aa73}p,li{color:#bcc8da}strong{color:#f1f4fb}code{overflow-wrap:anywhere;color:#d9e5ff}ol{padding-left:23px}footer{border-top:1px solid #2c3c5b;margin-top:40px;padding-top:20px;font-size:.9rem}button{background:#b8d2ff;color:#081120;border:0;border-radius:9px;padding:10px 15px;cursor:pointer;font-weight:700}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#080d18;border:1px solid #2c3c5b;border-radius:12px;padding:18px;font-size:.78rem}
+  </style>
+</head>
+<body><main>
+  <div class="eyebrow">Kamui / research prototype <span class="badge">Arbitrum Sepolia · testnet only</span></div>
+  <h1>Capital Frontier</h1>
+  <p class="lead">A reproducible capital-buffer check for a proposed Safe Transaction Builder batch. It reports how many calls are covered by observed balances and stops when a call is unknown.</p>
+  <div class="grid">
+    <section class="card"><div class="label">Nominal scenario</div><div class="value">3 / 4</div><div class="bar"><span style="width:75%"></span></div><p>Three modeled sends are funded. The fourth call is unknown.</p></section>
+    <section class="card"><div class="label">Stress scenario</div><div class="value">2 / 4</div><div class="bar stress"><span style="width:50%"></span></div><p>110% outflow plus a 0.00005 test ETH reserve. The third send is short.</p></section>
+    <section class="card"><div class="label">Input state</div><div class="value">0.0009</div><p>Testnet ETH in a synthetic Safe-shaped fixture. No real customer funds.</p></section>
+  </div>
+  <h2>What was tested</h2>
+  <ol><li>An invented four-call batch was checked against a deployed read-only contract at Arbitrum Sepolia block <strong>312534294</strong>.</li><li>The contract reads the synthetic account balance; a Node adapter models ordered outflows and stops at the first unknown or unfunded call.</li><li>Eight local blockchain tests pass. The fixture is <strong>not authentic Safe bytecode</strong>.</li></ol>
+  <p><button id="report-button" type="button" aria-expanded="false" aria-controls="report">Show preserved report</button></p>
+  <pre id="report" hidden></pre>
+  <h2>Verify the public evidence</h2>
+  <p><a href="https://sepolia.arbiscan.io/address/0x02b3Ee4d3E70f878308992582aF253e16a1Fe119">Read-only checker contract ↗</a> · <a href="https://sepolia.arbiscan.io/address/0x66b9F0b640B8aFa0819C16eb455356E20b382154">Synthetic fixture ↗</a> · <a href="https://github.com/SCMLpt/kamui-capital-frontier">Source, tests, and method ↗</a></p>
+  <footer>This preserved report describes a single testnet block. It does not simulate execution, authenticate Safe or token code, estimate actual gas, audit security, or authorize any transaction. The separate Kamui asset-management activity is outside this tool; no regulatory approval is claimed.</footer>
+</main>
+<script>
+const button=document.getElementById('report-button');const report=document.getElementById('report');button.addEventListener('click',async()=>{if(report.hidden){try{const r=await fetch('./evidence/testnet-demo-report-cli.json');if(!r.ok)throw Error('HTTP '+r.status);report.textContent=JSON.stringify(await r.json(),null,2)}catch(e){report.textContent='Report could not be loaded. See the source repository evidence directory.'}report.hidden=false;button.setAttribute('aria-expanded','true');button.textContent='Hide preserved report'}else{report.hidden=true;button.setAttribute('aria-expanded','false');button.textContent='Show preserved report'}});
+</script></body></html>
