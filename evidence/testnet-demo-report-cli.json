@@ -1,0 +1,30 @@
+{
+  "tool": "Kamui Arbitrum Capital Frontier — read-only prototype",
+  "chainId": "421614",
+  "blockNumber": 312534294,
+  "checker": "0x02b3Ee4d3E70f878308992582aF253e16a1Fe119",
+  "safe": "0x66b9F0b640B8aFa0819C16eb455356E20b382154",
+  "batchSha256": "6afc06ec250e78bba84e3c6033c81db491f0eb1a4c06fcf327a71043056eb15b",
+  "callCount": 4,
+  "allowedTokens": [],
+  "scenarioResults": [
+    {
+      "id": "nominal",
+      "outflowMultiplierBps": 10000,
+      "nativeFeeReserveWei": "10000000000000",
+      "fundedPrefix": 3,
+      "firstBlocker": 3,
+      "reason": "unknown call"
+    },
+    {
+      "id": "stress",
+      "outflowMultiplierBps": 11000,
+      "nativeFeeReserveWei": "50000000000000",
+      "fundedPrefix": 2,
+      "firstBlocker": 2,
+      "reason": "modeled shortfall"
+    }
+  ],
+  "worstCasePrefix": 2,
+  "scope": "Balance-only check of explicit native sends and allowlisted raw ERC-20 transfers. It does not simulate execution, verify authentic Safe/token code, calculate actual gas, or guarantee safety. Unknown calls stop the funded prefix."
+}

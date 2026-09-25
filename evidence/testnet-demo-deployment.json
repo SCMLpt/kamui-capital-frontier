@@ -1,0 +1,9 @@
+{
+  "chainId": "421614",
+  "checker": "0x02b3Ee4d3E70f878308992582aF253e16a1Fe119",
+  "syntheticAccount": "0x66b9F0b640B8aFa0819C16eb455356E20b382154",
+  "accountFundingTestETH": "0.0009",
+  "txHash": "0xd7cc7fe653b138c0eacf3a05d450fb2aa136ab01410288ec74f1fd46460151ee",
+  "blockNumber": 312534148,
+  "warning": "MockSafe is a Safe-shaped synthetic fixture, NOT authentic Safe bytecode. All balances are valueless testnet ETH; no customer account or assets."
+}

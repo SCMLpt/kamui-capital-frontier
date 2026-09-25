@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "chainId": "421614",
+  "createdAt": 0,
+  "meta": {
+    "name": "Synthetic Arbitrum treasury review",
+    "description": "Invented testnet calls; no live account or transaction",
+    "createdFromSafeAddress": "0x66b9F0b640B8aFa0819C16eb455356E20b382154"
+  },
+  "transactions": [
+    {
+      "to": "0x3333333333333333333333333333333333333333",
+      "value": "270000000000000",
+      "data": "0x"
+    },
+    {
+      "to": "0x4444444444444444444444444444444444444444",
+      "value": "270000000000000",
+      "data": "0x"
+    },
+    {
+      "to": "0x5555555555555555555555555555555555555555",
+      "value": "270000000000000",
+      "data": "0x"
+    },
+    {
+      "to": "0x6666666666666666666666666666666666666666",
+      "value": "0",
+      "data": "0x1234"
+    }
+  ]
+}

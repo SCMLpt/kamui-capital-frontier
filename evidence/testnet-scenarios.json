@@ -1,0 +1,12 @@
+[
+  {
+    "id": "nominal",
+    "outflow_multiplier_bps": 10000,
+    "native_fee_reserve_wei": "10000000000000"
+  },
+  {
+    "id": "stress",
+    "outflow_multiplier_bps": 11000,
+    "native_fee_reserve_wei": "50000000000000"
+  }
+]
