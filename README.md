@@ -90,7 +90,8 @@ constitute an award, a security audit, or a financial-service approval.
 - Public RPC returned 2691 bytes of checker runtime code matching the local
   Solidity 0.8.37 compile. Transaction receipts had success status. The CLI
   report and input JSON are in `evidence/`; a 58-second captioned illustration
-  of those real results is in `media/demo-58s.mp4`.
+  of those real results is in
+  [`Kamui-Arbitrum-Capital-Frontier-58s-demo.mp4`](Kamui-Arbitrum-Capital-Frontier-58s-demo.mp4).
 
 Run the same read-only query against the synthetic onchain fixture:
 
