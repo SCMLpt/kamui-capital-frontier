@@ -1,0 +1,6 @@
+node_modules/
+build/
+.env
+*.key
+private-*
+testnet-deployer-address.txt
